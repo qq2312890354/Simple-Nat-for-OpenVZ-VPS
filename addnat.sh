@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-echo -e "请输入服务器的主IP地址（公网）"
+echo -e "Please enter the server's primary IP address"
 		stty erase '^H' && read -p "(such as 8.8.8.8):" main_ip
 		[[ -z "${main_ip}" ]] && echo -e "cancel..." && exit 1
-echo -e "请输入需要使用多少个/24  IP地址, 最大：5。"
+echo -e "Please enter how many / 24 IP addresses are needed, max: 5."
 		stty erase '^H' && read -p "(such as 1):" user_ip_num
 		[[ -z "${user_ip_num}" ]] && echo -e "cancel..." && exit 1
 iptables -t nat -F
@@ -31,5 +31,6 @@ for (( c = 1; c <= ${user_ip_num}; c++ ));do
 done
 service iptables save
 service iptables restart
-echo -e "吖？好像已经好了耶！"
+echo -e "Latest version: https://github.com/qq2312890354/addnat.sh/"
+echo -e "Nothing to do!"
 
